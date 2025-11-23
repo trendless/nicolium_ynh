@@ -1,0 +1,6 @@
+### Une application cliente de réseau social qui fonctionne avec tout logiciel compatible avec l'API Mastodon, et qui se concentre sur la prise en charge de backends alternatifs comme Pleroma ou GoToSocial.
+
+* Riche en fonctionnalités : pl-fe inclut un large éventail de fonctionnalités, telles qu’un éditeur de texte WYSIWYG, la possibilité de publier des brouillons, et bien plus encore.
+* Compatibilité : pl-fe est compatible avec tous les logiciels compatibles avec l’API Mastodon, considérant les serveurs alternatifs comme des composants à part entière. Messagerie instantanée, réactions emoji, groupes, politiques d’interaction ? Nous prenons tout en charge. Grâce à pl-api, qui fournit une interface unifiée pour interagir avec les serveurs compatibles avec l’API Mastodon, les différences d’implémentation n’affectent pas l’expérience utilisateur.
+* Sans parti pris : pl-fe n’impose aucune limitation arbitraire à l’utilisateur. Nous ne limitons pas le nombre de réactions par publication et nous nous efforçons d’implémenter toutes les fonctionnalités disponibles dans l’API.
+* Préservez votre vie privée : pl-fe intègre des fonctionnalités qui vous aident à protéger votre confidentialité en ligne. Parmi celles-ci, le nettoyage des URL vous permet de supprimer les parties indésirables des URL utilisées pour tracer votre activité en ligne.

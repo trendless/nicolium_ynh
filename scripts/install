@@ -1,0 +1,60 @@
+#!/bin/bash
+
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+source /usr/share/yunohost/helpers
+
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression "Setting up source files..."
+
+ynh_setup_source --dest_dir="$install_dir/.build"
+
+chown -R "$app:$app" "$install_dir/.build"
+
+#=================================================
+# APP ENV
+#=================================================
+#ynh_script_progression "Adding $app config files..."
+
+#ynh_config_add --template=".env.example" --destination="$install_dir/.build/packages/pl-fe/.env"
+#ynh_config_add --template="features.json" --destination="$install_dir/.build/custom/features.json"
+
+#=================================================
+# SYSTEM CONFIGURATION
+#=================================================
+ynh_script_progression "Adding system configurations..."
+
+ynh_config_add_nginx
+
+ynh_config_add_logrotate
+
+#=================================================
+# BUILD APP
+#=================================================
+ynh_script_progression "Building $app... This will take some time."
+
+pushd $install_dir/.build
+	ynh_hide_warnings corepack enable
+	ynh_hide_warnings npm install -g corepack@latest
+	ynh_hide_warnings ynh_exec_as_app corepack prepare pnpm@9 --activate
+	ynh_hide_warnings ynh_exec_as_app pnpm install
+	ynh_hide_warnings ynh_exec_as_app pnpm -r build
+popd
+
+mv $install_dir/.build/packages/pl-fe/dist/* $install_dir/
+ynh_safe_rm "$install_dir/.build"
+ynh_safe_rm "$install_dir/.cache"
+ynh_safe_rm "$install_dir/.local"
+ynh_safe_rm "$install_dir/.npm"
+chmod -R o-rwx "$install_dir"
+chown -R "$app:www-data" "$install_dir"
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_script_progression "Installation complete."
