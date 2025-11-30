@@ -37,10 +37,6 @@ ram.runtime = "50M"
     [install.domain]
     type = "domain"
 
-    [install.path]
-    type = "path"
-    default = "/"
-
     [install.init_main_permission]
     type = "group"
     default = "visitors"
@@ -50,8 +46,8 @@ ram.runtime = "50M"
     [resources.sources]
 
     	[resources.sources.main]
-    	url = "https://codeberg.org/mkljczk/pl-fe/archive/498f1c9da018780d411f23902355176db87b16ed.tar.gz"
-    	sha256 = "33d9211ac92c1a803e834fb7f3e2423b8f1cb262c9135e5d855ba48d288938e1"
+    	url = "https://codeberg.org/mkljczk/pl-fe/archive/a8cea70fec6109892a01d583b6f2d187254d60b9.tar.gz"
+    	sha256 = "0b3e5a99f5250cfac7dffeb1c6aa6e040e6f658bb22b5ea880522078719ebebb"
     	#autoupdate.strategy = "latest_forgejo_commit"
 
     [resources.system_user]
