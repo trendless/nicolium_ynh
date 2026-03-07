@@ -2,19 +2,19 @@
 
 packaging_format = 2
 
-id = "plfe"
-name = "pl-fe"
-description.en = "Social networking client app that works with any Mastodon API-compatible software"
-description.fr = "Application cliente de réseau social compatible avec tout logiciel compatible avec l'API Mastodon"
+id = "nicolium"
+name = "Nicolium"
+description.en = ""
+description.fr = "Mastodon-compatible social media front-end "
 
-version = "2025.11.22~ynh1"
+version = "2026.03.06~ynh1"
 
 maintainers = ["trendless"]
 
 [upstream]
 license = "AGPL-3.0-or-later"
-demo = "https://pl.mkljczk.pl"
-code = "https://codeberg.org/mkljczk/pl-fe"
+demo = "https://web.nicolium.app/"
+code = "https://codeberg.org/mkljczk/nicolium"
 
 # cpe = "???"
 
@@ -41,13 +41,18 @@ ram.runtime = "50M"
     type = "group"
     default = "visitors"
 
+    [install.backend_url]
+    type = "string"
+    help = "URL of ActivityPub server to restrict login to"
+    example = "https://mastodon.social"
+
 [resources]
 
     [resources.sources]
 
     	[resources.sources.main]
-    	url = "https://codeberg.org/mkljczk/pl-fe/archive/a8cea70fec6109892a01d583b6f2d187254d60b9.tar.gz"
-    	sha256 = "0b3e5a99f5250cfac7dffeb1c6aa6e040e6f658bb22b5ea880522078719ebebb"
+    	url = "https://codeberg.org/mkljczk/nicolium/archive/a6dff620347e5e49c8bf71ff10d52bed3196b6ee.tar.gz"
+    	sha256 = "a6dff620347e5e49c8bf71ff10d52bed3196b6ee"
     	#autoupdate.strategy = "latest_forgejo_commit"
 
     [resources.system_user]
@@ -59,4 +64,4 @@ ram.runtime = "50M"
      main.url = "/"
 
     [resources.nodejs]
-    version = "21"
+    version = "24"
