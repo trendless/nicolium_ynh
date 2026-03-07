@@ -16,14 +16,6 @@ ynh_setup_source --dest_dir="$install_dir/.build"
 chown -R "$app:$app" "$install_dir/.build"
 
 #=================================================
-# APP ENV
-#=================================================
-#ynh_script_progression "Adding $app config files..."
-
-#ynh_config_add --template=".env.example" --destination="$install_dir/.build/packages/pl-fe/.env"
-#ynh_config_add --template="features.json" --destination="$install_dir/.build/custom/features.json"
-
-#=================================================
 # SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Adding system configurations..."
@@ -40,9 +32,8 @@ ynh_script_progression "Building $app... This will take some time."
 pushd $install_dir/.build
 	ynh_hide_warnings corepack enable pnpm
 	ynh_hide_warnings pnpm install
-	#ynh_hide_warnings ynh_exec_as_app corepack prepare pnpm@9 --activate
 	ynh_hide_warnings ynh_exec_as_app pnpm -F pl-api build
-	ynh_hide_warnings ynh_exec_as_app FE_SUBDIRECTORY=$path BACKEND_URL=$backend_url pnpm -F nicolium build
+	ynh_hide_warnings ynh_exec_as_app pnpm -F nicolium build
 popd
 
 mv $install_dir/.build/packages/nicolium/dist/* $install_dir/

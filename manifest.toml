@@ -4,8 +4,8 @@ packaging_format = 2
 
 id = "nicolium"
 name = "Nicolium"
-description.en = ""
-description.fr = "Mastodon-compatible social media front-end "
+description.en = "Mastodon-compatible social media front-end"
+description.fr = "Mastodon-social compatible moyen front-end"
 
 version = "2026.03.06~ynh1"
 
@@ -41,18 +41,13 @@ ram.runtime = "50M"
     type = "group"
     default = "visitors"
 
-    [install.backend_url]
-    type = "string"
-    help = "URL of ActivityPub server to restrict login to"
-    example = "https://mastodon.social"
-
 [resources]
 
     [resources.sources]
 
     	[resources.sources.main]
     	url = "https://codeberg.org/mkljczk/nicolium/archive/a6dff620347e5e49c8bf71ff10d52bed3196b6ee.tar.gz"
-    	sha256 = "a6dff620347e5e49c8bf71ff10d52bed3196b6ee"
+    	sha256 = "c1b8e1a48cb1b03b31dfa64eced921207f465713069bfd034d5367fb68936575"
     	#autoupdate.strategy = "latest_forgejo_commit"
 
     [resources.system_user]
