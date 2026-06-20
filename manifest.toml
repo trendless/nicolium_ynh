@@ -46,9 +46,9 @@ ram.runtime = "50M"
     [resources.sources]
 
     	[resources.sources.main]
-    	url = "https://codeberg.org/mkljczk/nicolium/archive/a6dff620347e5e49c8bf71ff10d52bed3196b6ee.tar.gz"
-    	sha256 = "c1b8e1a48cb1b03b31dfa64eced921207f465713069bfd034d5367fb68936575"
-    	#autoupdate.strategy = "latest_forgejo_commit"
+    	url = "https://codeberg.org/nicolium/nicolium/archive/v1.0.0.tar.gz"
+    	sha256 = "5250e20898b2bc02b4797205d4a05c2595fbeceef24d09d8d8a179b0c0acdfd8"
+    	#autoupdate.strategy = "latest_forgejo_release"
 
     [resources.system_user]
 
