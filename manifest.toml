@@ -41,6 +41,12 @@ ram.runtime = "50M"
     type = "group"
     default = "visitors"
 
+    [install.backend_url]
+    type = "string"
+    ask.en = "Domain of the server you want to log in to with Nicolium?"
+    help.en = "my.domain.tld"
+    optional = true
+
 [resources]
 
     [resources.sources]

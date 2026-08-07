@@ -33,7 +33,7 @@ pushd $install_dir/.build
 	ynh_hide_warnings corepack enable pnpm
 	ynh_hide_warnings pnpm install
 	ynh_hide_warnings ynh_exec_as_app pnpm -F pl-api build
-	ynh_hide_warnings ynh_exec_as_app pnpm -F nicolium build
+	ynh_hide_warnings ynh_exec_as_app BACKEND_URL=https://$backend_url pnpm -F nicolium build
 popd
 
 mv $install_dir/.build/packages/nicolium/dist/* $install_dir/
