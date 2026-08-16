@@ -11,11 +11,9 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-ynh_setup_source --dest_dir="$install_dir"
+ynh_setup_source --dest_dir="$install_dir/.build"
 
-mkdir "$install_dir/data"
-
-chown -R "$app:$app" "$install_dir"
+chown -R "$app:$app" "$install_dir/.build"
 
 #=================================================
 # SYSTEM CONFIGURATION
@@ -24,16 +22,28 @@ ynh_script_progression "Adding system configurations..."
 
 ynh_config_add_nginx
 
-ynh_config_add_systemd
-
-yunohost service add "$app" --description="Cronjob management UI" --log=systemd
+ynh_config_add_logrotate
 
 #=================================================
-# START SYSTEMD SERVICE
+# BUILD APP
 #=================================================
-ynh_script_progression "Starting $app's systemd service..."
+ynh_script_progression "Building $app... This will take some time."
 
-ynh_systemctl --service="$app" --action="start" --log_path=systemd --wait_until="Ready"
+pushd $install_dir/.build
+	ynh_hide_warnings corepack enable pnpm
+	ynh_hide_warnings ynh_exec_as_app corepack prepare pnpm@11.17.0 --activate
+	ynh_hide_warnings ynh_exec_as_app pnpm install
+	ynh_hide_warnings ynh_exec_as_app pnpm -F pl-api build
+	ynh_hide_warnings ynh_exec_as_app pnpm -F nicolium build
+popd
+
+mv $install_dir/.build/packages/nicolium/dist/* $install_dir/
+ynh_safe_rm "$install_dir/.build"
+ynh_safe_rm "$install_dir/.cache"
+ynh_safe_rm "$install_dir/.local"
+ynh_safe_rm "$install_dir/.npm"
+chmod -R o-rwx "$install_dir"
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # END OF SCRIPT

@@ -20,10 +20,12 @@ ynh_script_progression "Restoring system configurations related to $app..."
 
 ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
+ynh_restore "/etc/logrotate.d/$app"
+
 #=================================================
 # RESTORE VARIOUS FILES
 #=================================================
-ynh_restore 
+ynh_restore "/var/log/$app/"
 
 #=================================================
 # RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
