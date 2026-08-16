@@ -1,6 +1,0 @@
-### Nicolium est une application client de réseautage social. Il fonctionne avec n'importe quel logiciel compatible avec l'API de Mastodon, mais il est axé sur le soutien de moteurs alternatifs, comme Pleroma ou GoToSocial.
-
-* Riche en caractéristiques : le nolium comprend un large éventail de fonctionnalités, telles qu'un éditeur de texte WYSIWYG, des postes de rédaction, etc.
-* Compatibilité : Nolium est compatible avec n'importe quel logiciel compatible avec l'API de Mastodon. Chats, réactions émoji, groupes, politiques d'interaction ? Nous les soutenons tous. Grâce à pl-api, qui fournit une interface unifiée pour interagir avec les serveurs compatibles avec l'API de Mastodon, les différences d'implémentation n'affectent pas l'expérience utilisateur.
-* Sans opinion : le nolium n'impose aucune limitation arbitraire à l'utilisateur. Nous ne précisons pas une limite de réactions que vous pouvez utiliser sur un seul post et essayons de mettre en œuvre toutes les fonctionnalités disponibles dans l'API.
-* Rester privé: Nolium comprend des fonctionnalités qui vous aident à maintenir la confidentialité en ligne. Cela inclut le nettoyage des URL, qui vous aide à supprimer les parties indésirables des URL utilisées pour marquer votre activité en ligne.

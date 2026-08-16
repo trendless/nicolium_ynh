@@ -1,6 +1,14 @@
-### Nicolium is a social networking client app. It works with any Mastodon API-compatible software, but it's focused on supporting alternative backends, like Pleroma or GoToSocial.
+### Cronmaster is a cronjob management UI with human readable syntax, live logging and log history for your cronjobs.
 
-* Feature-rich: Nicolium includes a wide range of features, such as a WYSIWYG text editor, draft posts, and more.
-* Compatibility: Nicolium is compatible with any Mastodon API-compatible software, treating alternative backends as first-class citizens. Chats, emoji reactions, groups, interaction policies? We support them all. Thanks to pl-api, which provides a unified interface for interacting with Mastodon API-compatible servers, implementation differences do not affect the user experience.
-* Unopinionated: Nicolium doesn't impose any arbitrary limitations on the user. We do not specify a limit of reactions you can use on a single post and try to implement every feature available in the API.
-* Stay private: Nicolium includes features which help you maintain online privacy. This includes URL cleaning, which helps you remove unwanted parts of URLs used to mark your online activity.    
+#### Features
+
+- Modern UI: Beautiful, responsive interface with dark/light mode.
+- System Information: Display uptime, memory, network, CPU, and GPU info.
+- Cron Job Management: View, create, and delete cron jobs with comments.
+- Script management: View, create, and delete bash scripts on the go to use within your cron jobs.
+- Job Execution Logging: Optional logging for cronjobs with automatic cleanup, capturing stdout, stderr, exit codes, and timestamps.
+- Live Updates (SSE): Real-time job status updates and live log streaming for long-running jobs (when logging is enabled).
+- Smart Job Execution: Jobs with logging run in background with live updates, jobs without logging run synchronously with 5-minute timeout.
+- REST API: Full REST API with optional API key authentication for external integrations.
+- Easy Setup: Quick presets for common cron schedules.
+
